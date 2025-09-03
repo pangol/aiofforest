@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>숲의 아이 독서모임</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    header a {
+      background: #4caf50;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #2e7d32;
+    }
+    .members {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .member {
+      flex: 1 1 200px;
+      text-align: center;
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .process {
+      background: #e8f5e9;
+      border-radius: 12px;
+      padding: 30px;
+    }
+    .process ul {
+      list-style: none;
+      padding: 0;
+    }
+    .process li {
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    form input, form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    form button {
+      padding: 15px;
+      background: #4caf50;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #2e7d32;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <h1>숲의 아이 독서모임</h1>
+    <p>책과 함께 숲처럼 성장하는 시간, 함께 걸어가요.</p>
+    <a href="#apply">멤버 신청하기</a>
+  </header>
+
+  <!-- 모임 멤버 소개 -->
+  <section>
+    <h2>모임 멤버 소개</h2>
+    <div class="members">
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="멤버1">
+        <h3>김나연</h3>
+        <p>고전문학 애호가, 따뜻한 토론 리더</p>
+      </div>
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="멤버2">
+        <h3>이현우</h3>
+        <p>철학과 인문학 중심, 깊은 질문을 던지는 사람</p>
+      </div>
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="멤버3">
+        <h3>박서연</h3>
+        <p>에세이와 시를 좋아하는 감성적인 멤버</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 진행 방법 -->
+  <section>
+    <h2>진행 방법</h2>
+    <div class="process">
+      <ul>
+        <li>📖 매월 지정 도서를 함께 읽고 느낀 점을 나눕니다.</li>
+        <li>💬 자유로운 토론과 소그룹 대화로 깊이 있는 대화를 이어갑니다.</li>
+        <li>🌱 함께 숲속 산책이나 카페 모임을 통해 교류의 장을 만듭니다.</li>
+        <li>✨ 온라인 기록을 통해 언제든지 다시 읽고 공유할 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 멤버 신청 -->
+  <section id="apply">
+    <h2>멤버 신청하기</h2>
+    <form>
+      <input type="text" placeholder="이름" required>
+      <input type="email" placeholder="이메일" required>
+      <textarea rows="4" placeholder="참여하고 싶은 이유를 적어주세요" required></textarea>
+      <button type="submit">신청하기</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 숲의 아이 독서모임 | 함께 책을 읽고 숲처럼 성장하는 모임</p>
+  </footer>
+
+</body>
+</html>
