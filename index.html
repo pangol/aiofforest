@@ -4,133 +4,174 @@
   <meta charset="UTF-8">
   <title>숲의 아이 독서모임</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- AOS 애니메이션 라이브러리 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Noto Sans KR', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: #444;
+      background: #fdfbf7;
     }
+    /* Hero Section */
     header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                  url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+      position: relative;
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 140px 20px;
+      overflow: hidden;
+    }
+    /* Animated Gradient Background */
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(270deg, #2e7d32, #81c784, #aed581, #66bb6a);
+      background-size: 600% 600%;
+      animation: gradientMove 12s ease infinite;
+      z-index: -2;
+    }
+    /* Overlay for readability */
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
+      font-weight: 700;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin-bottom: 30px;
+      min-height: 2em;
     }
     header a {
-      background: #4caf50;
-      color: white;
-      padding: 15px 30px;
+      background: #ffffff;
+      color: #2e7d32;
+      padding: 15px 35px;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 30px;
       font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.3s, background 0.3s;
     }
+    header a:hover {
+      background: #f1f8e9;
+      transform: scale(1.05);
+    }
+
+    /* Section styling (same as before) */
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
     }
     h2 {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
       color: #2e7d32;
     }
     .members {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
       justify-content: center;
     }
     .member {
-      flex: 1 1 200px;
+      flex: 1 1 250px;
       text-align: center;
-      background: #f5f5f5;
-      padding: 20px;
-      border-radius: 12px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
     }
+    .member:hover { transform: translateY(-8px); }
     .member img {
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 50%;
       margin-bottom: 15px;
     }
     .process {
-      background: #e8f5e9;
-      border-radius: 12px;
-      padding: 30px;
+      background: #f1f8e9;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    .process ul {
-      list-style: none;
-      padding: 0;
-    }
+    .process ul { list-style: none; padding: 0; }
     .process li {
-      margin: 15px 0;
-      font-size: 1.1rem;
+      margin: 18px 0;
+      font-size: 1.15rem;
+      display: flex; align-items: center;
     }
+    .process li::before { content: "🌿"; margin-right: 12px; }
     form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
+      display: flex; flex-direction: column; gap: 18px;
+      max-width: 500px; margin: auto;
+      background: #fff; padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     form input, form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
+      padding: 14px; border: 1px solid #ccc;
+      border-radius: 8px; font-size: 1rem;
+      background: #fafafa;
     }
     form button {
-      padding: 15px;
-      background: #4caf50;
-      border: none;
-      color: white;
+      padding: 15px; background: #81c784;
+      border: none; color: white;
       font-size: 1.1rem;
-      border-radius: 8px;
+      border-radius: 30px;
       cursor: pointer;
+      transition: background 0.3s;
     }
+    form button:hover { background: #66bb6a; }
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       background: #2e7d32;
       color: white;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
 
   <!-- Hero -->
-  <header>
+  <header data-aos="fade-up" data-aos-duration="1200">
     <h1>숲의 아이 독서모임</h1>
-    <p>책과 함께 숲처럼 성장하는 시간, 함께 걸어가요.</p>
+    <p id="typing-text"></p>
     <a href="#apply">멤버 신청하기</a>
   </header>
 
-  <!-- 모임 멤버 소개 -->
+  <!-- 멤버 소개 -->
   <section>
-    <h2>모임 멤버 소개</h2>
+    <h2 data-aos="fade-up">모임 멤버 소개</h2>
     <div class="members">
-      <div class="member">
+      <div class="member" data-aos="fade-up" data-aos-delay="100">
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="멤버1">
         <h3>김나연</h3>
         <p>고전문학 애호가, 따뜻한 토론 리더</p>
       </div>
-      <div class="member">
+      <div class="member" data-aos="fade-up" data-aos-delay="200">
         <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="멤버2">
         <h3>이현우</h3>
         <p>철학과 인문학 중심, 깊은 질문을 던지는 사람</p>
       </div>
-      <div class="member">
+      <div class="member" data-aos="fade-up" data-aos-delay="300">
         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="멤버3">
         <h3>박서연</h3>
         <p>에세이와 시를 좋아하는 감성적인 멤버</p>
@@ -140,21 +181,21 @@
 
   <!-- 진행 방법 -->
   <section>
-    <h2>진행 방법</h2>
-    <div class="process">
+    <h2 data-aos="fade-up">진행 방법</h2>
+    <div class="process" data-aos="zoom-in" data-aos-duration="1000">
       <ul>
-        <li>📖 매월 지정 도서를 함께 읽고 느낀 점을 나눕니다.</li>
-        <li>💬 자유로운 토론과 소그룹 대화로 깊이 있는 대화를 이어갑니다.</li>
-        <li>🌱 함께 숲속 산책이나 카페 모임을 통해 교류의 장을 만듭니다.</li>
-        <li>✨ 온라인 기록을 통해 언제든지 다시 읽고 공유할 수 있습니다.</li>
+        <li>매월 지정 도서를 함께 읽고 느낀 점을 나눕니다.</li>
+        <li>자유로운 토론과 소그룹 대화로 깊이 있는 대화를 이어갑니다.</li>
+        <li>함께 숲속 산책이나 카페 모임을 통해 교류의 장을 만듭니다.</li>
+        <li>온라인 기록을 통해 언제든지 다시 읽고 공유할 수 있습니다.</li>
       </ul>
     </div>
   </section>
 
   <!-- 멤버 신청 -->
   <section id="apply">
-    <h2>멤버 신청하기</h2>
-    <form>
+    <h2 data-aos="fade-up">멤버 신청하기</h2>
+    <form data-aos="fade-up" data-aos-delay="200">
       <input type="text" placeholder="이름" required>
       <input type="email" placeholder="이메일" required>
       <textarea rows="4" placeholder="참여하고 싶은 이유를 적어주세요" required></textarea>
@@ -167,5 +208,23 @@
     <p>© 2025 숲의 아이 독서모임 | 함께 책을 읽고 숲처럼 성장하는 모임</p>
   </footer>
 
+  <!-- AOS 스크립트 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // 타이핑 효과
+    const text = "책과 함께 숲처럼 성장하는 시간";
+    const typingEl = document.getElementById("typing-text");
+    let i = 0;
+    function typing() {
+      if (i < text.length) {
+        typingEl.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 120);
+      }
+    }
+    typing();
+  </script>
 </body>
 </html>
